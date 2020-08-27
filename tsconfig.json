@@ -1,0 +1,11 @@
+{
+  "compilerOptions": {
+    "jsx": "react"
+  },
+  "target": "esnext",
+  "baseUrl": ".",
+  "paths": {
+    "*": ["src/*"],
+    "#types": "./types.ts"
+  },
+}
