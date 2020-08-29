@@ -1,0 +1,49 @@
+name: Create Release and Publish
+
+on:
+  push:
+    tags:
+      - '*'
+
+jobs:
+  build:
+    name: Create Release
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v2
+
+      - name: Create Release
+        id: create_release
+        uses: actions/create-release@v1
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        with:
+          tag_name: ${{ github.ref }}
+          release_name: Release ${{ github.ref }}
+          draft: false
+          prerelease: false
+
+  publish:
+    name: "Build and Release"
+    runs-on: "ubuntu-latest"
+    steps:
+      - name: "Checkout"
+        uses: actions/checkout@v2
+
+      - name: "Setup Node"
+        uses: actions/setup-node@v1
+        with:
+          node-version: 12
+          registry-url: https://registry.npmjs.org/
+
+      - name: "Install dependencies"
+        run: "yarn install"
+
+      - name: "Build Library"
+        run: "yarn prepare"
+
+      - name: "Deploy to NPM"
+        run: "yarn publish --access public"
+        env:
+          NODE_AUTH_TOKEN: ${{secrets.NPM_TOKEN}}

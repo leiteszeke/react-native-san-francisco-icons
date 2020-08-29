@@ -4,10 +4,11 @@ module.exports = {
     [
       'module-resolver',
       {
-        root: ['./src'],
+        root: ['.'],
         extensions: ['.ios.js', '.android.js', '.js', '.ts', '.tsx', '.json'],
         alias: {
-          '#types': ['./types.ts'],
+          '#types': './types.d.ts',
+          'react-native-san-francisco-icons': './src',
         },
       },
     ],
