@@ -2,10 +2,26 @@ name: Create Release and Publish
 
 on:
   push:
-    tags:
-      - '**'
+    branches:
+      - master
 
 jobs:
+  upgradeVersion:
+    name: "Upgrade version"
+    runs-on: ubuntu-latest
+    steps:
+      - name: "Checkout"
+        uses: actions/checkout@v2
+
+      - name: "Setup Node"
+        uses: actions/setup-node@v1
+        with:
+          node-version: 12
+          registry-url: https://registry.npmjs.org/
+
+      - name: "Run upgrade command"
+        run: "node ./upgrade-version.js ${{ github.event.inputs.type }}"
+
   build:
     name: Create Release
     runs-on: ubuntu-latest

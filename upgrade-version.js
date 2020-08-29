@@ -75,7 +75,7 @@ const updatePackageJson = ({ version }) => {
 
 const configGitUser = () => {
   execSync(
-    'git config user.name "Deploy bot" && git config user.email bot@leites.dev',
+    'git config user.name Ezequiel Leites && git config user.email ezequiel@leites.dev',
   );
 };
 
@@ -90,7 +90,7 @@ const commitVersioning = (newVersion) => {
 
 const commitTag = (newVersion) => {
   execSync(
-    `git tag v${branchPrefix}${newVersion} -m "Release v${branchPrefix}${newVersion}" && git push origin v${branchPrefix}${newVersion}-f `,
+    `git tag v${branchPrefix}${newVersion} -m "Release v${branchPrefix}${newVersion}" && git push origin v${branchPrefix}${newVersion} -f `,
     { stdio: 'inherit' },
   );
 };
