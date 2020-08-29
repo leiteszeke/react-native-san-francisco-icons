@@ -20,7 +20,7 @@ jobs:
           registry-url: https://registry.npmjs.org/
 
       - name: "Run upgrade command"
-        run: "node ./upgrade-version.js ${{ github.event.inputs.type }}"
+        run: "node ./upgrade-version.js patch"
 
   build:
     name: Create Release
