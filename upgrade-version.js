@@ -83,14 +83,14 @@ const commitVersioning = (newVersion) => {
   execSync('git status', { stdio: 'inherit' });
 
   execSync(
-    `git add . && git commit -m "Release v${branchPrefix}${newVersion}" && git push origin master`,
+    `git add . && git commit -m "Release v${branchPrefix}${newVersion}" && git push origin master -f`,
     { stdio: 'inherit' },
   );
 };
 
 const commitTag = (newVersion) => {
   execSync(
-    `git tag v${branchPrefix}${newVersion} -m "Release v${branchPrefix}${newVersion}" && git push origin v${branchPrefix}${newVersion}`,
+    `git tag v${branchPrefix}${newVersion} -m "Release v${branchPrefix}${newVersion}" && git push origin v${branchPrefix}${newVersion}-f `,
     { stdio: 'inherit' },
   );
 };
