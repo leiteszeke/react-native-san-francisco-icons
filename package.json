@@ -1,6 +1,6 @@
 {
   "name": "react-native-san-francisco-icons",
-  "version": "0.0.15",
+  "version": "0.0.16",
   "description": "San Francisco symbols from Apple for React Native as SVG Components",
   "main": "lib/commonjs/index.js",
   "module": "lib/module/index.js",

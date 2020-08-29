@@ -3,7 +3,7 @@ name: Create Release and Publish
 on:
   push:
     tags:
-      - '*'
+      - '**'
 
 jobs:
   build:
