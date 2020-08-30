@@ -9,6 +9,7 @@ const packageJsonFile = path.join(__dirname, '../package.json');
 
 const [type, nextVersion] = process.argv.splice(2);
 const branchPrefix = '';
+const cliConfig = { stdio: false };
 
 const validateVersion = () => {
   const { version } = packageJson;
@@ -81,25 +82,21 @@ const updatePackageJson = ({ version }) => {
 };
 
 const commitVersioning = (newVersion) => {
-  const spinner = ora('Running git status').start();
-  execSync('git status', { stdio: 'inherit' });
-  spinner.succeed();
-
-  spinner.start(ora('Configuring git user')).start();
-  execSync('git config user.email ezequiel@leites.dev');
-  execSync('git config user.name Ezequiel Leites');
-  spinner.succeed();
+  const spinner = ora('Configuring git user').start();
+  execSync('git config user.email ezequiel@leites.dev', cliConfig);
+  execSync('git config user.name Ezequiel Leites', cliConfig);
+  spinner.succeed('User configured');
 
   spinner.start(ora('Add files')).start();
-  execSync('git add .');
+  execSync('git add .', cliConfig);
   spinner.succeed('Files added');
 
   spinner.start(ora('Commit files')).start();
-  execSync(`git commit -m "Release v${branchPrefix}${newVersion}"`);
+  execSync(`git commit -m "Release v${branchPrefix}${newVersion}"`, cliConfig);
   spinner.succeed('Commit created');
 
   spinner.start(ora('Push branch')).start();
-  execSync('git push origin master');
+  execSync('git push origin master', cliConfig);
   spinner.succeed('Branch pushed');
 };
 
@@ -107,11 +104,12 @@ const commitTag = (newVersion) => {
   const spinner = ora('Create new tag').start();
   execSync(
     `git tag v${branchPrefix}${newVersion} -m "Release v${branchPrefix}${newVersion}"`,
+    cliConfig,
   );
   spinner.succeed('Tag created');
 
   spinner.start(ora('Push tag')).start();
-  execSync(`git push origin v${branchPrefix}${newVersion}`);
+  execSync(`git push origin v${branchPrefix}${newVersion}`, cliConfig);
   spinner.succeed('Tag pushed');
 };
 
