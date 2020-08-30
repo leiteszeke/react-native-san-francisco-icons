@@ -1,3 +1,14 @@
-import Pencil from './Pencil';
-
-export { Pencil };
+export { default as ArrowShapeLeft } from './ArrowShapeLeft';
+export { default as BarcodeViewfinder } from './BarcodeViewfinder';
+export { default as ChevronLeft } from './ChevronLeft';
+export { default as ChevronRight } from './ChevronRight';
+export { default as Clock } from './Clock';
+export { default as CreditCard } from './CreditCard';
+export { default as EurosignCircle } from './EurosignCircle';
+export { default as KeyboardChevron } from './KeyboardChevron';
+export { default as Minus } from './Minus';
+export { default as Pencil } from './Pencil';
+export { default as Plus } from './Plus';
+export { default as Power } from './Power';
+export { default as SquareGrid } from './SquareGrid';
+export { default as Trash } from './Trash';

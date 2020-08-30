@@ -20,7 +20,7 @@ jobs:
           registry-url: https://registry.npmjs.org/
 
       - name: "Run upgrade command"
-        run: "node ./upgrade-version.js patch"
+        run: "node ./scripts/upgrade-version.js patch"
         env:
           GITHUB_TOKEN: ${{ secrets.DEPLOY_TOKEN }}
 

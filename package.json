@@ -14,7 +14,10 @@
     "type": "git",
     "url": "git+https://github.com/leiteszeke/react-native-san-francisco-icons.git"
   },
-  "author": "Ezequiel Leites",
+  "author": {
+    "name": "Ezequiel Leites",
+    "email": "ezequiel@leites.dev"
+  },
   "license": "ISC",
   "bugs": {
     "url": "https://github.com/leiteszeke/react-native-san-francisco-icons/issues"
@@ -31,7 +34,8 @@
     "storybook": "start-storybook -p 6006",
     "build-storybook": "build-storybook",
     "run:ios": "react-native run-ios",
-    "prepare": "bob build"
+    "prepare": "bob build",
+    "imports": "node ./scripts/generate-imports.js"
   },
   "devDependencies": {
     "@babel/core": "^7.8.4",
@@ -51,7 +55,9 @@
     "babel-jest": "^25.1.0",
     "babel-loader": "^8.1.0",
     "babel-plugin-module-resolver": "^4.0.0",
+    "consistencss": "^1.1.1",
     "eslint": "^6.5.1",
+    "hermes-engine": "0.5.2-rc1",
     "jest": "^25.1.0",
     "metro-react-native-babel-preset": "^0.59.0",
     "react": "16.13.1",
