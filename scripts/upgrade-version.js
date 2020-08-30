@@ -1,7 +1,9 @@
 const fs = require('fs');
+const path = require('path');
 const { execSync } = require('child_process');
 
 const packageJson = require('../package.json');
+const packageJsonFile = path.join(__dirname, 'package.json');
 
 const [type, nextVersion] = process.argv.splice(2);
 const branchPrefix = '';
@@ -70,7 +72,7 @@ const updatePackageJson = ({ version }) => {
 
   packageJson.version = version;
 
-  fs.writeFileSync('../package.json', JSON.stringify(packageJson, null, 2));
+  fs.writeFileSync(packageJsonFile, JSON.stringify(packageJson, null, 2));
 };
 
 const commitVersioning = (newVersion) => {
