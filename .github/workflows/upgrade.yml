@@ -32,6 +32,6 @@ jobs:
         uses: peter-evans/repository-dispatch@v1
         with:
           token: ${{ secrets.DEPLOY_TOKEN }}
-          repository: leiteszeke/react-native-san-francisco-icons
+          repository: ${{ github.repository }}
           event-type: upgraded
           client-payload: '{"tag": "${{ steps.previoustag.outputs.tag }}"}'
