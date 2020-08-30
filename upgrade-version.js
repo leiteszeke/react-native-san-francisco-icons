@@ -66,7 +66,7 @@ const getNewVersion = () => {
 };
 
 const updatePackageJson = ({ version }) => {
-  console.log(`This should update to v${version}`);
+  console.log(`This should update to ${version}`);
 
   packageJson.version = version;
 
@@ -83,14 +83,14 @@ const commitVersioning = (newVersion) => {
   execSync('git push origin :refs/tags/refs/heads/master');
 
   execSync(
-    `git add . && git commit -m "Release v${branchPrefix}${newVersion}" && git push origin master -f`,
+    `git add . && git commit -m "Release ${branchPrefix}${newVersion}" && git push origin master -f`,
     { stdio: 'inherit' },
   );
 };
 
 const commitTag = (newVersion) => {
   execSync(
-    `git tag v${branchPrefix}${newVersion} -m "Release v${branchPrefix}${newVersion}" && git push origin v${branchPrefix}${newVersion} -f `,
+    `git tag ${branchPrefix}${newVersion} -m "Release ${branchPrefix}${newVersion}" && git push origin ${branchPrefix}${newVersion} -f `,
     { stdio: 'inherit' },
   );
 };
