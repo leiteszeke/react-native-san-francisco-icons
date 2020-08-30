@@ -1,4 +1,4 @@
-name: Publis to NPM
+name: Publish to NPM
 
 on:
   release:
