@@ -23,3 +23,14 @@ jobs:
         run: "node ./upgrade-version.js patch"
         env:
           GITHUB_TOKEN: ${{ secrets.DEPLOY_TOKEN }}
+
+  dispatchEvent:
+    name: Repository Dispatch
+    runs-on: ubuntu-latest
+    steps:
+      - name: "Dispatch event"
+        uses: peter-evans/repository-dispatch@v1
+        with:
+          token: ${{ secrets.DEPLOY_TOKEN }}
+          repository: leiteszeke/react-native-san-francisco-icons
+          event-type: upgraded
