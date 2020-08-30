@@ -11,6 +11,8 @@ jobs:
     steps:
       - name: Checkout code
         uses: actions/checkout@v2
+        with:
+          fetch-depth: 0
 
       - name: Create Changelog
         uses: scottbrenner/generate-changelog-action@master
@@ -24,6 +26,8 @@ jobs:
         env:
           GITHUB_TOKEN: ${{ secrets.DEPLOY_TOKEN }}
         with:
+          body: |
+            ${{ steps.Changelog.outputs.changelog }}
           tag_name: ${{ github.event.client_payload.tag }}
           release_name: Release ${{ github.event.client_payload.tag }}
           draft: false
