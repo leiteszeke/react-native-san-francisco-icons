@@ -1,0 +1,88 @@
+{
+  "name": "react-native-san-francisco-icons",
+  "version": "0.4.16",
+  "description": "San Francisco symbols from Apple for React Native as SVG Components",
+  "main": "lib/commonjs/index.js",
+  "module": "lib/module/index.js",
+  "react-native": "src/index.ts",
+  "types": "lib/typescript/src/index.d.ts",
+  "files": [
+    "lib/",
+    "src/"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/leiteszeke/react-native-san-francisco-icons.git"
+  },
+  "author": {
+    "name": "Ezequiel Leites",
+    "email": "ezequiel@leites.dev"
+  },
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/leiteszeke/react-native-san-francisco-icons/issues"
+  },
+  "homepage": "https://github.com/leiteszeke/react-native-san-francisco-icons#readme",
+  "scripts": {
+    "android": "react-native run-android",
+    "ios": "react-native run-ios",
+    "start": "react-native start",
+    "test": "jest",
+    "test-watch": "yarn test --watchAll --coverage",
+    "typescript": "tsc --noEmit",
+    "lint": "eslint --ext .js,.ts,.tsx .",
+    "storybook": "start-storybook -p 6006",
+    "build-storybook": "build-storybook",
+    "run:ios": "react-native run-ios",
+    "prepare": "bob build",
+    "imports": "node ./scripts/generate-imports.js"
+  },
+  "devDependencies": {
+    "@babel/core": "^7.8.4",
+    "@babel/runtime": "^7.8.4",
+    "@react-native-community/bob": "^0.16.2",
+    "@react-native-community/eslint-config": "^1.1.0",
+    "@storybook/addon-actions": "^6.0.19",
+    "@storybook/addon-essentials": "^6.0.19",
+    "@storybook/addon-links": "^6.0.19",
+    "@storybook/addon-ondevice-backgrounds": "^5.3.20",
+    "@storybook/react-native": "^5.3.20",
+    "@storybook/react-native-server": "^5.3.20",
+    "@types/jest": "^26.0.10",
+    "@types/react": "^16.9.48",
+    "@types/react-native": "^0.63.10",
+    "@types/react-test-renderer": "^16.9.3",
+    "babel-jest": "^25.1.0",
+    "babel-loader": "^8.1.0",
+    "babel-plugin-module-resolver": "^4.0.0",
+    "consistencss": "^1.1.1",
+    "eslint": "^6.5.1",
+    "hermes-engine": "0.5.2-rc1",
+    "jest": "^25.1.0",
+    "metro-react-native-babel-preset": "^0.59.0",
+    "react": "16.13.1",
+    "react-dom": "^16.13.1",
+    "react-is": "^16.13.1",
+    "react-native": "0.63.2",
+    "react-native-svg": "^12.1.0",
+    "react-test-renderer": "16.13.1",
+    "typescript": "^4.0.2"
+  },
+  "peerDependencies": {
+    "react": "*",
+    "react-native": "*",
+    "react-native-svg": "*"
+  },
+  "jest": {
+    "preset": "react-native"
+  },
+  "@react-native-community/bob": {
+    "source": "src",
+    "output": "lib",
+    "targets": [
+      "commonjs",
+      "module",
+      "typescript"
+    ]
+  }
+}
