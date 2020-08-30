@@ -24,9 +24,14 @@ jobs:
         env:
           GITHUB_TOKEN: ${{ secrets.DEPLOY_TOKEN }}
 
+      - name: "Get last tag"
+        id: previoustag
+        uses: "WyriHaximus/github-action-get-previous-tag@master"
+
       - name: "Dispatch event"
         uses: peter-evans/repository-dispatch@v1
         with:
           token: ${{ secrets.DEPLOY_TOKEN }}
           repository: leiteszeke/react-native-san-francisco-icons
           event-type: upgraded
+          client-payload: '{"tag": "${{ steps.previoustag.outputs.tag }}"}'
