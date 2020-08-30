@@ -24,10 +24,6 @@ jobs:
         env:
           GITHUB_TOKEN: ${{ secrets.DEPLOY_TOKEN }}
 
-  dispatchEvent:
-    name: Repository Dispatch
-    runs-on: ubuntu-latest
-    steps:
       - name: "Dispatch event"
         uses: peter-evans/repository-dispatch@v1
         with:
