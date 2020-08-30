@@ -73,12 +73,6 @@ const updatePackageJson = ({ version }) => {
   fs.writeFileSync('./package.json', JSON.stringify(packageJson, null, 2));
 };
 
-const configGitUser = () => {
-  execSync(
-    'git config user.name Ezequiel Leites && git config user.email ezequiel@leites.dev',
-  );
-};
-
 const commitVersioning = (newVersion) => {
   execSync('git status', { stdio: 'inherit' });
 
@@ -97,8 +91,6 @@ const commitTag = (newVersion) => {
 
 // Get new version
 const upgradedVersion = getNewVersion();
-// Config git user
-configGitUser();
 // Update package.json
 updatePackageJson(upgradedVersion);
 // Commit versioning
