@@ -80,17 +80,15 @@ const commitVersioning = (newVersion) => {
     'git config user.email ezequiel@leites.dev && git config user.name Ezequiel Leites',
   );
 
-  execSync('git push origin :refs/tags/refs/heads/master');
-
   execSync(
-    `git add . && git commit -m "Release v${branchPrefix}${newVersion}" && git push origin master -f`,
+    `git add . && git commit -m "Release v${branchPrefix}${newVersion}" && git push origin master`,
     { stdio: 'inherit' },
   );
 };
 
 const commitTag = (newVersion) => {
   execSync(
-    `git tag ${branchPrefix}${newVersion} -m "Release v${branchPrefix}${newVersion}" && git push origin v${branchPrefix}${newVersion} -f `,
+    `git tag ${branchPrefix}${newVersion} -m "Release v${branchPrefix}${newVersion}" && git push origin v${branchPrefix}${newVersion}`,
     { stdio: 'inherit' },
   );
 };
