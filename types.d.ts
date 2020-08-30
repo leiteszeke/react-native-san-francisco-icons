@@ -1,3 +1,5 @@
+import { TouchableOpacityProps } from 'react-native';
+
 export enum IconType {
   SIMPLE = 'simple',
   CUSTOM = 'custom',
@@ -20,3 +22,5 @@ export type SFIconProps = Pick<IconProps, 'color'> & {
   name: string;
   size?: number;
 };
+
+export type TouchableSFIconProps = TouchableOpacityProps & SFIconProps;

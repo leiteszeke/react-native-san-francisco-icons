@@ -4,7 +4,7 @@
   "description": "San Francisco symbols from Apple for React Native as SVG Components",
   "main": "lib/commonjs/index.js",
   "module": "lib/module/index.js",
-  "react-native": "src/index.tsx",
+  "react-native": "src/index.ts",
   "types": "lib/typescript/src/index.d.ts",
   "files": [
     "lib/",
