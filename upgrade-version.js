@@ -90,7 +90,7 @@ const commitVersioning = (newVersion) => {
 
 const commitTag = (newVersion) => {
   execSync(
-    `git tag ${branchPrefix}${newVersion} -m "Release ${branchPrefix}${newVersion}" && git push origin ${branchPrefix}${newVersion} -f `,
+    `git tag ${branchPrefix}${newVersion} -m "Release ${branchPrefix}${newVersion}" && git push origin --tags`,
     { stdio: 'inherit' },
   );
 };
