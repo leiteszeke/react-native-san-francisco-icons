@@ -3,7 +3,7 @@ const path = require('path');
 const { execSync } = require('child_process');
 
 const packageJson = require('../package.json');
-const packageJsonFile = path.join(__dirname, 'package.json');
+const packageJsonFile = path.join(__dirname, '../package.json');
 
 const [type, nextVersion] = process.argv.splice(2);
 const branchPrefix = '';

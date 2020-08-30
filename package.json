@@ -35,7 +35,8 @@
     "build-storybook": "build-storybook",
     "run:ios": "react-native run-ios",
     "prepare": "bob build",
-    "imports": "node ./scripts/generate-imports.js"
+    "imports": "node ./scripts/generate-imports.js",
+    "upgrade:version": "node ./scripts/upgrade-version.js patch"
   },
   "devDependencies": {
     "@babel/core": "^7.8.4",
