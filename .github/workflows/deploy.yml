@@ -1,0 +1,29 @@
+name: Publis to NPM
+
+on:
+  release:
+
+jobs:
+  publish:
+    name: "Build and Release"
+    runs-on: "ubuntu-latest"
+    steps:
+      - name: "Checkout"
+        uses: actions/checkout@v2
+
+      - name: "Setup Node"
+        uses: actions/setup-node@v1
+        with:
+          node-version: 12
+          registry-url: https://registry.npmjs.org/
+
+      - name: "Install dependencies"
+        run: "yarn install"
+
+      - name: "Build Library"
+        run: "yarn prepare"
+
+      - name: "Deploy to NPM"
+        run: "yarn publish --access public"
+        env:
+          NODE_AUTH_TOKEN: ${{secrets.NPM_TOKEN}}

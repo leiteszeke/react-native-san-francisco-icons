@@ -1,27 +1,12 @@
-name: Create Release and Publish
+name: Create Release
 
 on:
   push:
-    branches:
-      - master
+    # Sequence of patterns matched against refs/tags
+    tags:
+      - 'v*' # Push events to matching v*, i.e. v1.0, v20.15.10
 
 jobs:
-  upgradeVersion:
-    name: "Upgrade version"
-    runs-on: ubuntu-latest
-    steps:
-      - name: "Checkout"
-        uses: actions/checkout@v2
-
-      - name: "Setup Node"
-        uses: actions/setup-node@v1
-        with:
-          node-version: 12
-          registry-url: https://registry.npmjs.org/
-
-      - name: "Run upgrade command"
-        run: "node ./upgrade-version.js patch"
-
   build:
     name: Create Release
     runs-on: ubuntu-latest
@@ -39,27 +24,3 @@ jobs:
           release_name: Release ${{ github.ref }}
           draft: false
           prerelease: false
-
-  publish:
-    name: "Build and Release"
-    runs-on: "ubuntu-latest"
-    steps:
-      - name: "Checkout"
-        uses: actions/checkout@v2
-
-      - name: "Setup Node"
-        uses: actions/setup-node@v1
-        with:
-          node-version: 12
-          registry-url: https://registry.npmjs.org/
-
-      - name: "Install dependencies"
-        run: "yarn install"
-
-      - name: "Build Library"
-        run: "yarn prepare"
-
-      - name: "Deploy to NPM"
-        run: "yarn publish --access public"
-        env:
-          NODE_AUTH_TOKEN: ${{secrets.NPM_TOKEN}}

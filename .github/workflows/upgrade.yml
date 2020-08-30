@@ -1,0 +1,23 @@
+name: Upgrade version
+
+on:
+  push:
+    branches:
+      - master
+
+jobs:
+  upgradeVersion:
+    name: "Upgrade version"
+    runs-on: ubuntu-latest
+    steps:
+      - name: "Checkout"
+        uses: actions/checkout@v2
+
+      - name: "Setup Node"
+        uses: actions/setup-node@v1
+        with:
+          node-version: 12
+          registry-url: https://registry.npmjs.org/
+
+      - name: "Run upgrade command"
+        run: "node ./upgrade-version.js patch"
