@@ -77,7 +77,7 @@ const commitVersioning = (newVersion) => {
   execSync('git status', { stdio: 'inherit' });
 
   execSync(
-    `git add . && git commit -m "Release v${branchPrefix}${newVersion}" && git push origin master -f`,
+    `git add . && git commit -m "Release v${branchPrefix}${newVersion}" && git push origin -f`,
     { stdio: 'inherit' },
   );
 };
