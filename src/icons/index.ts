@@ -1,10 +1,15 @@
 export { default as ArrowShapeLeft } from './ArrowShapeLeft';
 export { default as BarcodeViewfinder } from './BarcodeViewfinder';
+export { default as Check } from './Check';
+export { default as CheckCircle } from './CheckCircle';
 export { default as ChevronLeft } from './ChevronLeft';
 export { default as ChevronRight } from './ChevronRight';
 export { default as Clock } from './Clock';
 export { default as CreditCard } from './CreditCard';
+export { default as Cross } from './Cross';
 export { default as EurosignCircle } from './EurosignCircle';
+export { default as Exclamation } from './Exclamation';
+export { default as ExclamationOutline } from './ExclamationOutline';
 export { default as KeyboardChevron } from './KeyboardChevron';
 export { default as Minus } from './Minus';
 export { default as Pencil } from './Pencil';
