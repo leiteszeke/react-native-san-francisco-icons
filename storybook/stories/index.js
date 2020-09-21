@@ -7,6 +7,7 @@ import {
 import { withBackgrounds } from '@storybook/addon-ondevice-backgrounds';
 import Arrows from './Arrows/index.stories';
 import Commerce from './Commerce/index.stories';
+import Devices from './Devices/index.stories';
 import Editing from './Editing/index.stories';
 import Others from './Others/index.stories';
 import Keyboard from './Keyboard/index.stories';
@@ -26,6 +27,7 @@ addParameters({
 storiesOf('Icons', module)
   .add('Arrows', () => <Arrows />)
   .add('Commerce', () => <Commerce />)
+  .add('Devices', () => <Devices />)
   .add('Editing', () => <Editing />)
   .add('Keyboard', () => <Keyboard />)
   .add('Math', () => <Math />)
