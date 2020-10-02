@@ -1,4 +1,5 @@
 export { default as ArrowShapeLeft } from './ArrowShapeLeft';
+export { default as AspectRatio } from './AspectRatio';
 export { default as BarcodeViewfinder } from './BarcodeViewfinder';
 export { default as Check } from './Check';
 export { default as CheckCircle } from './CheckCircle';
@@ -13,6 +14,7 @@ export { default as Minus } from './Minus';
 export { default as Pencil } from './Pencil';
 export { default as Plus } from './Plus';
 export { default as Power } from './Power';
+export { default as Printer } from './Printer';
 export { default as SquareGrid } from './SquareGrid';
 export { default as Trash } from './Trash';
 export { default as Warning } from './Warning';
